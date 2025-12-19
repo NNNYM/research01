@@ -1,0 +1,715 @@
+vid_multi 11111111
+vid_multi
+| distributed init (rank 0): env://
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+git:
+  sha: N/A, status: clean, branch: N/A
+
+Namespace(aux_loss=True, backbone='swin_t_p4w7', batch_size=1, bbox_loss_coef=5, cache_mode=False, checkpoint=False, clip_max_norm=0.1, cls_loss_coef=2, coco_panoptic_path=None, coco_path='./data/coco', coco_pretrain=False, dataset_file='vid_multi', dec_layers=6, dec_n_points=4, device='cuda', dice_loss_coef=1, dilation=True, dim_feedforward=1024, dist_backend='nccl', dist_url='env://', distributed=True, dropout=0.1, enc_layers=6, enc_n_points=4, epochs=7, eval=False, fixed_pretrained_model=False, focal_alpha=0.25, frozen_weights=None, gap=2, giou_loss_coef=2, gpu=0, hidden_dim=256, interval1=20, interval2=60, is_shuffle=False, lr=0.0002, lr_backbone=1e-05, lr_backbone_names=['backbone.0'], lr_drop=5, lr_drop_epochs=[5, 6], lr_linear_proj_mult=0.1, lr_linear_proj_names=['reference_points', 'sampling_offsets'], mask_loss_coef=1, masks=False, n_temporal_decoder_layers=1, nheads=8, num_feature_levels=4, num_frames=4, num_queries=50, num_ref_frames=3, num_workers=2, output_dir='outputs/exp_antiuav_swinb_multi_12172107', position_embedding='sine', position_embedding_scale=6.283185307179586, pretrained=None, rank=0, remove_difficult=False, resume='', seed=42, set_cost_bbox=5, set_cost_class=2, set_cost_giou=2, sgd=False, start_epoch=0, two_stage=False, vid_path='/mnt/e/important/code/TransVOD_Lite-main/a_Ncode/data_test/output', weight_decay=0.0001, with_box_refine=True, world_size=1)
+/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+self.num_layers 4
+/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+number of params: 50186202
+loading annotations into memory...
+Done (t=0.06s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.03s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+transformer.level_embed
+transformer.encoder.layers.0.self_attn.sampling_offsets.weight
+transformer.encoder.layers.0.self_attn.sampling_offsets.bias
+transformer.encoder.layers.0.self_attn.attention_weights.weight
+transformer.encoder.layers.0.self_attn.attention_weights.bias
+transformer.encoder.layers.0.self_attn.value_proj.weight
+transformer.encoder.layers.0.self_attn.value_proj.bias
+transformer.encoder.layers.0.self_attn.output_proj.weight
+transformer.encoder.layers.0.self_attn.output_proj.bias
+transformer.encoder.layers.0.norm1.weight
+transformer.encoder.layers.0.norm1.bias
+transformer.encoder.layers.0.linear1.weight
+transformer.encoder.layers.0.linear1.bias
+transformer.encoder.layers.0.linear2.weight
+transformer.encoder.layers.0.linear2.bias
+transformer.encoder.layers.0.norm2.weight
+transformer.encoder.layers.0.norm2.bias
+transformer.encoder.layers.1.self_attn.sampling_offsets.weight
+transformer.encoder.layers.1.self_attn.sampling_offsets.bias
+transformer.encoder.layers.1.self_attn.attention_weights.weight
+transformer.encoder.layers.1.self_attn.attention_weights.bias
+transformer.encoder.layers.1.self_attn.value_proj.weight
+transformer.encoder.layers.1.self_attn.value_proj.bias
+transformer.encoder.layers.1.self_attn.output_proj.weight
+transformer.encoder.layers.1.self_attn.output_proj.bias
+transformer.encoder.layers.1.norm1.weight
+transformer.encoder.layers.1.norm1.bias
+transformer.encoder.layers.1.linear1.weight
+transformer.encoder.layers.1.linear1.bias
+transformer.encoder.layers.1.linear2.weight
+transformer.encoder.layers.1.linear2.bias
+transformer.encoder.layers.1.norm2.weight
+transformer.encoder.layers.1.norm2.bias
+transformer.encoder.layers.2.self_attn.sampling_offsets.weight
+transformer.encoder.layers.2.self_attn.sampling_offsets.bias
+transformer.encoder.layers.2.self_attn.attention_weights.weight
+transformer.encoder.layers.2.self_attn.attention_weights.bias
+transformer.encoder.layers.2.self_attn.value_proj.weight
+transformer.encoder.layers.2.self_attn.value_proj.bias
+transformer.encoder.layers.2.self_attn.output_proj.weight
+transformer.encoder.layers.2.self_attn.output_proj.bias
+transformer.encoder.layers.2.norm1.weight
+transformer.encoder.layers.2.norm1.bias
+transformer.encoder.layers.2.linear1.weight
+transformer.encoder.layers.2.linear1.bias
+transformer.encoder.layers.2.linear2.weight
+transformer.encoder.layers.2.linear2.bias
+transformer.encoder.layers.2.norm2.weight
+transformer.encoder.layers.2.norm2.bias
+transformer.encoder.layers.3.self_attn.sampling_offsets.weight
+transformer.encoder.layers.3.self_attn.sampling_offsets.bias
+transformer.encoder.layers.3.self_attn.attention_weights.weight
+transformer.encoder.layers.3.self_attn.attention_weights.bias
+transformer.encoder.layers.3.self_attn.value_proj.weight
+transformer.encoder.layers.3.self_attn.value_proj.bias
+transformer.encoder.layers.3.self_attn.output_proj.weight
+transformer.encoder.layers.3.self_attn.output_proj.bias
+transformer.encoder.layers.3.norm1.weight
+transformer.encoder.layers.3.norm1.bias
+transformer.encoder.layers.3.linear1.weight
+transformer.encoder.layers.3.linear1.bias
+transformer.encoder.layers.3.linear2.weight
+transformer.encoder.layers.3.linear2.bias
+transformer.encoder.layers.3.norm2.weight
+transformer.encoder.layers.3.norm2.bias
+transformer.encoder.layers.4.self_attn.sampling_offsets.weight
+transformer.encoder.layers.4.self_attn.sampling_offsets.bias
+transformer.encoder.layers.4.self_attn.attention_weights.weight
+transformer.encoder.layers.4.self_attn.attention_weights.bias
+transformer.encoder.layers.4.self_attn.value_proj.weight
+transformer.encoder.layers.4.self_attn.value_proj.bias
+transformer.encoder.layers.4.self_attn.output_proj.weight
+transformer.encoder.layers.4.self_attn.output_proj.bias
+transformer.encoder.layers.4.norm1.weight
+transformer.encoder.layers.4.norm1.bias
+transformer.encoder.layers.4.linear1.weight
+transformer.encoder.layers.4.linear1.bias
+transformer.encoder.layers.4.linear2.weight
+transformer.encoder.layers.4.linear2.bias
+transformer.encoder.layers.4.norm2.weight
+transformer.encoder.layers.4.norm2.bias
+transformer.encoder.layers.5.self_attn.sampling_offsets.weight
+transformer.encoder.layers.5.self_attn.sampling_offsets.bias
+transformer.encoder.layers.5.self_attn.attention_weights.weight
+transformer.encoder.layers.5.self_attn.attention_weights.bias
+transformer.encoder.layers.5.self_attn.value_proj.weight
+transformer.encoder.layers.5.self_attn.value_proj.bias
+transformer.encoder.layers.5.self_attn.output_proj.weight
+transformer.encoder.layers.5.self_attn.output_proj.bias
+transformer.encoder.layers.5.norm1.weight
+transformer.encoder.layers.5.norm1.bias
+transformer.encoder.layers.5.linear1.weight
+transformer.encoder.layers.5.linear1.bias
+transformer.encoder.layers.5.linear2.weight
+transformer.encoder.layers.5.linear2.bias
+transformer.encoder.layers.5.norm2.weight
+transformer.encoder.layers.5.norm2.bias
+transformer.decoder.layers.0.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.0.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.0.cross_attn.attention_weights.weight
+transformer.decoder.layers.0.cross_attn.attention_weights.bias
+transformer.decoder.layers.0.cross_attn.value_proj.weight
+transformer.decoder.layers.0.cross_attn.value_proj.bias
+transformer.decoder.layers.0.cross_attn.output_proj.weight
+transformer.decoder.layers.0.cross_attn.output_proj.bias
+transformer.decoder.layers.0.norm1.weight
+transformer.decoder.layers.0.norm1.bias
+transformer.decoder.layers.0.self_attn.in_proj_weight
+transformer.decoder.layers.0.self_attn.in_proj_bias
+transformer.decoder.layers.0.self_attn.out_proj.weight
+transformer.decoder.layers.0.self_attn.out_proj.bias
+transformer.decoder.layers.0.norm2.weight
+transformer.decoder.layers.0.norm2.bias
+transformer.decoder.layers.0.linear1.weight
+transformer.decoder.layers.0.linear1.bias
+transformer.decoder.layers.0.linear2.weight
+transformer.decoder.layers.0.linear2.bias
+transformer.decoder.layers.0.norm3.weight
+transformer.decoder.layers.0.norm3.bias
+transformer.decoder.layers.1.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.1.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.1.cross_attn.attention_weights.weight
+transformer.decoder.layers.1.cross_attn.attention_weights.bias
+transformer.decoder.layers.1.cross_attn.value_proj.weight
+transformer.decoder.layers.1.cross_attn.value_proj.bias
+transformer.decoder.layers.1.cross_attn.output_proj.weight
+transformer.decoder.layers.1.cross_attn.output_proj.bias
+transformer.decoder.layers.1.norm1.weight
+transformer.decoder.layers.1.norm1.bias
+transformer.decoder.layers.1.self_attn.in_proj_weight
+transformer.decoder.layers.1.self_attn.in_proj_bias
+transformer.decoder.layers.1.self_attn.out_proj.weight
+transformer.decoder.layers.1.self_attn.out_proj.bias
+transformer.decoder.layers.1.norm2.weight
+transformer.decoder.layers.1.norm2.bias
+transformer.decoder.layers.1.linear1.weight
+transformer.decoder.layers.1.linear1.bias
+transformer.decoder.layers.1.linear2.weight
+transformer.decoder.layers.1.linear2.bias
+transformer.decoder.layers.1.norm3.weight
+transformer.decoder.layers.1.norm3.bias
+transformer.decoder.layers.2.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.2.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.2.cross_attn.attention_weights.weight
+transformer.decoder.layers.2.cross_attn.attention_weights.bias
+transformer.decoder.layers.2.cross_attn.value_proj.weight
+transformer.decoder.layers.2.cross_attn.value_proj.bias
+transformer.decoder.layers.2.cross_attn.output_proj.weight
+transformer.decoder.layers.2.cross_attn.output_proj.bias
+transformer.decoder.layers.2.norm1.weight
+transformer.decoder.layers.2.norm1.bias
+transformer.decoder.layers.2.self_attn.in_proj_weight
+transformer.decoder.layers.2.self_attn.in_proj_bias
+transformer.decoder.layers.2.self_attn.out_proj.weight
+transformer.decoder.layers.2.self_attn.out_proj.bias
+transformer.decoder.layers.2.norm2.weight
+transformer.decoder.layers.2.norm2.bias
+transformer.decoder.layers.2.linear1.weight
+transformer.decoder.layers.2.linear1.bias
+transformer.decoder.layers.2.linear2.weight
+transformer.decoder.layers.2.linear2.bias
+transformer.decoder.layers.2.norm3.weight
+transformer.decoder.layers.2.norm3.bias
+transformer.decoder.layers.3.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.3.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.3.cross_attn.attention_weights.weight
+transformer.decoder.layers.3.cross_attn.attention_weights.bias
+transformer.decoder.layers.3.cross_attn.value_proj.weight
+transformer.decoder.layers.3.cross_attn.value_proj.bias
+transformer.decoder.layers.3.cross_attn.output_proj.weight
+transformer.decoder.layers.3.cross_attn.output_proj.bias
+transformer.decoder.layers.3.norm1.weight
+transformer.decoder.layers.3.norm1.bias
+transformer.decoder.layers.3.self_attn.in_proj_weight
+transformer.decoder.layers.3.self_attn.in_proj_bias
+transformer.decoder.layers.3.self_attn.out_proj.weight
+transformer.decoder.layers.3.self_attn.out_proj.bias
+transformer.decoder.layers.3.norm2.weight
+transformer.decoder.layers.3.norm2.bias
+transformer.decoder.layers.3.linear1.weight
+transformer.decoder.layers.3.linear1.bias
+transformer.decoder.layers.3.linear2.weight
+transformer.decoder.layers.3.linear2.bias
+transformer.decoder.layers.3.norm3.weight
+transformer.decoder.layers.3.norm3.bias
+transformer.decoder.layers.4.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.4.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.4.cross_attn.attention_weights.weight
+transformer.decoder.layers.4.cross_attn.attention_weights.bias
+transformer.decoder.layers.4.cross_attn.value_proj.weight
+transformer.decoder.layers.4.cross_attn.value_proj.bias
+transformer.decoder.layers.4.cross_attn.output_proj.weight
+transformer.decoder.layers.4.cross_attn.output_proj.bias
+transformer.decoder.layers.4.norm1.weight
+transformer.decoder.layers.4.norm1.bias
+transformer.decoder.layers.4.self_attn.in_proj_weight
+transformer.decoder.layers.4.self_attn.in_proj_bias
+transformer.decoder.layers.4.self_attn.out_proj.weight
+transformer.decoder.layers.4.self_attn.out_proj.bias
+transformer.decoder.layers.4.norm2.weight
+transformer.decoder.layers.4.norm2.bias
+transformer.decoder.layers.4.linear1.weight
+transformer.decoder.layers.4.linear1.bias
+transformer.decoder.layers.4.linear2.weight
+transformer.decoder.layers.4.linear2.bias
+transformer.decoder.layers.4.norm3.weight
+transformer.decoder.layers.4.norm3.bias
+transformer.decoder.layers.5.cross_attn.sampling_offsets.weight
+transformer.decoder.layers.5.cross_attn.sampling_offsets.bias
+transformer.decoder.layers.5.cross_attn.attention_weights.weight
+transformer.decoder.layers.5.cross_attn.attention_weights.bias
+transformer.decoder.layers.5.cross_attn.value_proj.weight
+transformer.decoder.layers.5.cross_attn.value_proj.bias
+transformer.decoder.layers.5.cross_attn.output_proj.weight
+transformer.decoder.layers.5.cross_attn.output_proj.bias
+transformer.decoder.layers.5.norm1.weight
+transformer.decoder.layers.5.norm1.bias
+transformer.decoder.layers.5.self_attn.in_proj_weight
+transformer.decoder.layers.5.self_attn.in_proj_bias
+transformer.decoder.layers.5.self_attn.out_proj.weight
+transformer.decoder.layers.5.self_attn.out_proj.bias
+transformer.decoder.layers.5.norm2.weight
+transformer.decoder.layers.5.norm2.bias
+transformer.decoder.layers.5.linear1.weight
+transformer.decoder.layers.5.linear1.bias
+transformer.decoder.layers.5.linear2.weight
+transformer.decoder.layers.5.linear2.bias
+transformer.decoder.layers.5.norm3.weight
+transformer.decoder.layers.5.norm3.bias
+transformer.decoder.bbox_embed.0.layers.0.weight
+transformer.decoder.bbox_embed.0.layers.0.bias
+transformer.decoder.bbox_embed.0.layers.1.weight
+transformer.decoder.bbox_embed.0.layers.1.bias
+transformer.decoder.bbox_embed.0.layers.2.weight
+transformer.decoder.bbox_embed.0.layers.2.bias
+transformer.decoder.bbox_embed.1.layers.0.weight
+transformer.decoder.bbox_embed.1.layers.0.bias
+transformer.decoder.bbox_embed.1.layers.1.weight
+transformer.decoder.bbox_embed.1.layers.1.bias
+transformer.decoder.bbox_embed.1.layers.2.weight
+transformer.decoder.bbox_embed.1.layers.2.bias
+transformer.decoder.bbox_embed.2.layers.0.weight
+transformer.decoder.bbox_embed.2.layers.0.bias
+transformer.decoder.bbox_embed.2.layers.1.weight
+transformer.decoder.bbox_embed.2.layers.1.bias
+transformer.decoder.bbox_embed.2.layers.2.weight
+transformer.decoder.bbox_embed.2.layers.2.bias
+transformer.decoder.bbox_embed.3.layers.0.weight
+transformer.decoder.bbox_embed.3.layers.0.bias
+transformer.decoder.bbox_embed.3.layers.1.weight
+transformer.decoder.bbox_embed.3.layers.1.bias
+transformer.decoder.bbox_embed.3.layers.2.weight
+transformer.decoder.bbox_embed.3.layers.2.bias
+transformer.decoder.bbox_embed.4.layers.0.weight
+transformer.decoder.bbox_embed.4.layers.0.bias
+transformer.decoder.bbox_embed.4.layers.1.weight
+transformer.decoder.bbox_embed.4.layers.1.bias
+transformer.decoder.bbox_embed.4.layers.2.weight
+transformer.decoder.bbox_embed.4.layers.2.bias
+transformer.decoder.bbox_embed.5.layers.0.weight
+transformer.decoder.bbox_embed.5.layers.0.bias
+transformer.decoder.bbox_embed.5.layers.1.weight
+transformer.decoder.bbox_embed.5.layers.1.bias
+transformer.decoder.bbox_embed.5.layers.2.weight
+transformer.decoder.bbox_embed.5.layers.2.bias
+transformer.temporal_query_layer1.self_attn.in_proj_weight
+transformer.temporal_query_layer1.self_attn.in_proj_bias
+transformer.temporal_query_layer1.self_attn.out_proj.weight
+transformer.temporal_query_layer1.self_attn.out_proj.bias
+transformer.temporal_query_layer1.norm2.weight
+transformer.temporal_query_layer1.norm2.bias
+transformer.temporal_query_layer1.cross_attn.in_proj_weight
+transformer.temporal_query_layer1.cross_attn.in_proj_bias
+transformer.temporal_query_layer1.cross_attn.out_proj.weight
+transformer.temporal_query_layer1.cross_attn.out_proj.bias
+transformer.temporal_query_layer1.norm1.weight
+transformer.temporal_query_layer1.norm1.bias
+transformer.temporal_query_layer1.linear1.weight
+transformer.temporal_query_layer1.linear1.bias
+transformer.temporal_query_layer1.linear2.weight
+transformer.temporal_query_layer1.linear2.bias
+transformer.temporal_query_layer1.norm3.weight
+transformer.temporal_query_layer1.norm3.bias
+transformer.temporal_query_layer2.self_attn.in_proj_weight
+transformer.temporal_query_layer2.self_attn.in_proj_bias
+transformer.temporal_query_layer2.self_attn.out_proj.weight
+transformer.temporal_query_layer2.self_attn.out_proj.bias
+transformer.temporal_query_layer2.norm2.weight
+transformer.temporal_query_layer2.norm2.bias
+transformer.temporal_query_layer2.cross_attn.in_proj_weight
+transformer.temporal_query_layer2.cross_attn.in_proj_bias
+transformer.temporal_query_layer2.cross_attn.out_proj.weight
+transformer.temporal_query_layer2.cross_attn.out_proj.bias
+transformer.temporal_query_layer2.norm1.weight
+transformer.temporal_query_layer2.norm1.bias
+transformer.temporal_query_layer2.linear1.weight
+transformer.temporal_query_layer2.linear1.bias
+transformer.temporal_query_layer2.linear2.weight
+transformer.temporal_query_layer2.linear2.bias
+transformer.temporal_query_layer2.norm3.weight
+transformer.temporal_query_layer2.norm3.bias
+transformer.temporal_query_layer3.self_attn.in_proj_weight
+transformer.temporal_query_layer3.self_attn.in_proj_bias
+transformer.temporal_query_layer3.self_attn.out_proj.weight
+transformer.temporal_query_layer3.self_attn.out_proj.bias
+transformer.temporal_query_layer3.norm2.weight
+transformer.temporal_query_layer3.norm2.bias
+transformer.temporal_query_layer3.cross_attn.in_proj_weight
+transformer.temporal_query_layer3.cross_attn.in_proj_bias
+transformer.temporal_query_layer3.cross_attn.out_proj.weight
+transformer.temporal_query_layer3.cross_attn.out_proj.bias
+transformer.temporal_query_layer3.norm1.weight
+transformer.temporal_query_layer3.norm1.bias
+transformer.temporal_query_layer3.linear1.weight
+transformer.temporal_query_layer3.linear1.bias
+transformer.temporal_query_layer3.linear2.weight
+transformer.temporal_query_layer3.linear2.bias
+transformer.temporal_query_layer3.norm3.weight
+transformer.temporal_query_layer3.norm3.bias
+transformer.temporal_decoder1.layers.0.cross_attn.sampling_offsets.weight
+transformer.temporal_decoder1.layers.0.cross_attn.sampling_offsets.bias
+transformer.temporal_decoder1.layers.0.cross_attn.attention_weights.weight
+transformer.temporal_decoder1.layers.0.cross_attn.attention_weights.bias
+transformer.temporal_decoder1.layers.0.cross_attn.value_proj.weight
+transformer.temporal_decoder1.layers.0.cross_attn.value_proj.bias
+transformer.temporal_decoder1.layers.0.cross_attn.output_proj.weight
+transformer.temporal_decoder1.layers.0.cross_attn.output_proj.bias
+transformer.temporal_decoder1.layers.0.norm1.weight
+transformer.temporal_decoder1.layers.0.norm1.bias
+transformer.temporal_decoder1.layers.0.self_attn.in_proj_weight
+transformer.temporal_decoder1.layers.0.self_attn.in_proj_bias
+transformer.temporal_decoder1.layers.0.self_attn.out_proj.weight
+transformer.temporal_decoder1.layers.0.self_attn.out_proj.bias
+transformer.temporal_decoder1.layers.0.norm2.weight
+transformer.temporal_decoder1.layers.0.norm2.bias
+transformer.temporal_decoder1.layers.0.linear1.weight
+transformer.temporal_decoder1.layers.0.linear1.bias
+transformer.temporal_decoder1.layers.0.linear2.weight
+transformer.temporal_decoder1.layers.0.linear2.bias
+transformer.temporal_decoder1.layers.0.norm3.weight
+transformer.temporal_decoder1.layers.0.norm3.bias
+transformer.temporal_decoder2.layers.0.cross_attn.sampling_offsets.weight
+transformer.temporal_decoder2.layers.0.cross_attn.sampling_offsets.bias
+transformer.temporal_decoder2.layers.0.cross_attn.attention_weights.weight
+transformer.temporal_decoder2.layers.0.cross_attn.attention_weights.bias
+transformer.temporal_decoder2.layers.0.cross_attn.value_proj.weight
+transformer.temporal_decoder2.layers.0.cross_attn.value_proj.bias
+transformer.temporal_decoder2.layers.0.cross_attn.output_proj.weight
+transformer.temporal_decoder2.layers.0.cross_attn.output_proj.bias
+transformer.temporal_decoder2.layers.0.norm1.weight
+transformer.temporal_decoder2.layers.0.norm1.bias
+transformer.temporal_decoder2.layers.0.self_attn.in_proj_weight
+transformer.temporal_decoder2.layers.0.self_attn.in_proj_bias
+transformer.temporal_decoder2.layers.0.self_attn.out_proj.weight
+transformer.temporal_decoder2.layers.0.self_attn.out_proj.bias
+transformer.temporal_decoder2.layers.0.norm2.weight
+transformer.temporal_decoder2.layers.0.norm2.bias
+transformer.temporal_decoder2.layers.0.linear1.weight
+transformer.temporal_decoder2.layers.0.linear1.bias
+transformer.temporal_decoder2.layers.0.linear2.weight
+transformer.temporal_decoder2.layers.0.linear2.bias
+transformer.temporal_decoder2.layers.0.norm3.weight
+transformer.temporal_decoder2.layers.0.norm3.bias
+transformer.temporal_decoder3.layers.0.cross_attn.sampling_offsets.weight
+transformer.temporal_decoder3.layers.0.cross_attn.sampling_offsets.bias
+transformer.temporal_decoder3.layers.0.cross_attn.attention_weights.weight
+transformer.temporal_decoder3.layers.0.cross_attn.attention_weights.bias
+transformer.temporal_decoder3.layers.0.cross_attn.value_proj.weight
+transformer.temporal_decoder3.layers.0.cross_attn.value_proj.bias
+transformer.temporal_decoder3.layers.0.cross_attn.output_proj.weight
+transformer.temporal_decoder3.layers.0.cross_attn.output_proj.bias
+transformer.temporal_decoder3.layers.0.norm1.weight
+transformer.temporal_decoder3.layers.0.norm1.bias
+transformer.temporal_decoder3.layers.0.self_attn.in_proj_weight
+transformer.temporal_decoder3.layers.0.self_attn.in_proj_bias
+transformer.temporal_decoder3.layers.0.self_attn.out_proj.weight
+transformer.temporal_decoder3.layers.0.self_attn.out_proj.bias
+transformer.temporal_decoder3.layers.0.norm2.weight
+transformer.temporal_decoder3.layers.0.norm2.bias
+transformer.temporal_decoder3.layers.0.linear1.weight
+transformer.temporal_decoder3.layers.0.linear1.bias
+transformer.temporal_decoder3.layers.0.linear2.weight
+transformer.temporal_decoder3.layers.0.linear2.bias
+transformer.temporal_decoder3.layers.0.norm3.weight
+transformer.temporal_decoder3.layers.0.norm3.bias
+transformer.reference_points.weight
+transformer.reference_points.bias
+class_embed.0.weight
+class_embed.0.bias
+class_embed.1.weight
+class_embed.1.bias
+class_embed.2.weight
+class_embed.2.bias
+class_embed.3.weight
+class_embed.3.bias
+class_embed.4.weight
+class_embed.4.bias
+class_embed.5.weight
+class_embed.5.bias
+temp_class_embed.weight
+temp_class_embed.bias
+temp_bbox_embed.layers.0.weight
+temp_bbox_embed.layers.0.bias
+temp_bbox_embed.layers.1.weight
+temp_bbox_embed.layers.1.bias
+temp_bbox_embed.layers.2.weight
+temp_bbox_embed.layers.2.bias
+query_embed.weight
+input_proj.0.0.weight
+input_proj.0.0.bias
+input_proj.0.1.weight
+input_proj.0.1.bias
+input_proj.1.0.weight
+input_proj.1.0.bias
+input_proj.1.1.weight
+input_proj.1.1.bias
+input_proj.2.0.weight
+input_proj.2.0.bias
+input_proj.2.1.weight
+input_proj.2.1.bias
+input_proj.3.0.weight
+input_proj.3.0.bias
+input_proj.3.1.weight
+input_proj.3.1.bias
+backbone.0.body.fpn.inner_blocks.0.weight
+backbone.0.body.fpn.inner_blocks.0.bias
+backbone.0.body.fpn.inner_blocks.1.weight
+backbone.0.body.fpn.inner_blocks.1.bias
+backbone.0.body.fpn.inner_blocks.2.weight
+backbone.0.body.fpn.inner_blocks.2.bias
+backbone.0.body.fpn.layer_blocks.0.weight
+backbone.0.body.fpn.layer_blocks.0.bias
+backbone.0.body.fpn.layer_blocks.1.weight
+backbone.0.body.fpn.layer_blocks.1.bias
+backbone.0.body.fpn.layer_blocks.2.weight
+backbone.0.body.fpn.layer_blocks.2.bias
+backbone.0.body.patch_embed.proj.weight
+backbone.0.body.patch_embed.proj.bias
+backbone.0.body.patch_embed.norm.weight
+backbone.0.body.patch_embed.norm.bias
+backbone.0.body.layers.0.blocks.0.norm1.weight
+backbone.0.body.layers.0.blocks.0.norm1.bias
+backbone.0.body.layers.0.blocks.0.attn.relative_position_bias_table
+backbone.0.body.layers.0.blocks.0.attn.qkv.weight
+backbone.0.body.layers.0.blocks.0.attn.qkv.bias
+backbone.0.body.layers.0.blocks.0.attn.proj.weight
+backbone.0.body.layers.0.blocks.0.attn.proj.bias
+backbone.0.body.layers.0.blocks.0.norm2.weight
+backbone.0.body.layers.0.blocks.0.norm2.bias
+backbone.0.body.layers.0.blocks.0.mlp.fc1.weight
+backbone.0.body.layers.0.blocks.0.mlp.fc1.bias
+backbone.0.body.layers.0.blocks.0.mlp.fc2.weight
+backbone.0.body.layers.0.blocks.0.mlp.fc2.bias
+backbone.0.body.layers.0.blocks.1.norm1.weight
+backbone.0.body.layers.0.blocks.1.norm1.bias
+backbone.0.body.layers.0.blocks.1.attn.relative_position_bias_table
+backbone.0.body.layers.0.blocks.1.attn.qkv.weight
+backbone.0.body.layers.0.blocks.1.attn.qkv.bias
+backbone.0.body.layers.0.blocks.1.attn.proj.weight
+backbone.0.body.layers.0.blocks.1.attn.proj.bias
+backbone.0.body.layers.0.blocks.1.norm2.weight
+backbone.0.body.layers.0.blocks.1.norm2.bias
+backbone.0.body.layers.0.blocks.1.mlp.fc1.weight
+backbone.0.body.layers.0.blocks.1.mlp.fc1.bias
+backbone.0.body.layers.0.blocks.1.mlp.fc2.weight
+backbone.0.body.layers.0.blocks.1.mlp.fc2.bias
+backbone.0.body.layers.0.downsample.reduction.weight
+backbone.0.body.layers.0.downsample.norm.weight
+backbone.0.body.layers.0.downsample.norm.bias
+backbone.0.body.layers.1.blocks.0.norm1.weight
+backbone.0.body.layers.1.blocks.0.norm1.bias
+backbone.0.body.layers.1.blocks.0.attn.relative_position_bias_table
+backbone.0.body.layers.1.blocks.0.attn.qkv.weight
+backbone.0.body.layers.1.blocks.0.attn.qkv.bias
+backbone.0.body.layers.1.blocks.0.attn.proj.weight
+backbone.0.body.layers.1.blocks.0.attn.proj.bias
+backbone.0.body.layers.1.blocks.0.norm2.weight
+backbone.0.body.layers.1.blocks.0.norm2.bias
+backbone.0.body.layers.1.blocks.0.mlp.fc1.weight
+backbone.0.body.layers.1.blocks.0.mlp.fc1.bias
+backbone.0.body.layers.1.blocks.0.mlp.fc2.weight
+backbone.0.body.layers.1.blocks.0.mlp.fc2.bias
+backbone.0.body.layers.1.blocks.1.norm1.weight
+backbone.0.body.layers.1.blocks.1.norm1.bias
+backbone.0.body.layers.1.blocks.1.attn.relative_position_bias_table
+backbone.0.body.layers.1.blocks.1.attn.qkv.weight
+backbone.0.body.layers.1.blocks.1.attn.qkv.bias
+backbone.0.body.layers.1.blocks.1.attn.proj.weight
+backbone.0.body.layers.1.blocks.1.attn.proj.bias
+backbone.0.body.layers.1.blocks.1.norm2.weight
+backbone.0.body.layers.1.blocks.1.norm2.bias
+backbone.0.body.layers.1.blocks.1.mlp.fc1.weight
+backbone.0.body.layers.1.blocks.1.mlp.fc1.bias
+backbone.0.body.layers.1.blocks.1.mlp.fc2.weight
+backbone.0.body.layers.1.blocks.1.mlp.fc2.bias
+backbone.0.body.layers.1.downsample.reduction.weight
+backbone.0.body.layers.1.downsample.norm.weight
+backbone.0.body.layers.1.downsample.norm.bias
+backbone.0.body.layers.2.blocks.0.norm1.weight
+backbone.0.body.layers.2.blocks.0.norm1.bias
+backbone.0.body.layers.2.blocks.0.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.0.attn.qkv.weight
+backbone.0.body.layers.2.blocks.0.attn.qkv.bias
+backbone.0.body.layers.2.blocks.0.attn.proj.weight
+backbone.0.body.layers.2.blocks.0.attn.proj.bias
+backbone.0.body.layers.2.blocks.0.norm2.weight
+backbone.0.body.layers.2.blocks.0.norm2.bias
+backbone.0.body.layers.2.blocks.0.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.0.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.0.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.0.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.1.norm1.weight
+backbone.0.body.layers.2.blocks.1.norm1.bias
+backbone.0.body.layers.2.blocks.1.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.1.attn.qkv.weight
+backbone.0.body.layers.2.blocks.1.attn.qkv.bias
+backbone.0.body.layers.2.blocks.1.attn.proj.weight
+backbone.0.body.layers.2.blocks.1.attn.proj.bias
+backbone.0.body.layers.2.blocks.1.norm2.weight
+backbone.0.body.layers.2.blocks.1.norm2.bias
+backbone.0.body.layers.2.blocks.1.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.1.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.1.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.1.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.2.norm1.weight
+backbone.0.body.layers.2.blocks.2.norm1.bias
+backbone.0.body.layers.2.blocks.2.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.2.attn.qkv.weight
+backbone.0.body.layers.2.blocks.2.attn.qkv.bias
+backbone.0.body.layers.2.blocks.2.attn.proj.weight
+backbone.0.body.layers.2.blocks.2.attn.proj.bias
+backbone.0.body.layers.2.blocks.2.norm2.weight
+backbone.0.body.layers.2.blocks.2.norm2.bias
+backbone.0.body.layers.2.blocks.2.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.2.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.2.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.2.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.3.norm1.weight
+backbone.0.body.layers.2.blocks.3.norm1.bias
+backbone.0.body.layers.2.blocks.3.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.3.attn.qkv.weight
+backbone.0.body.layers.2.blocks.3.attn.qkv.bias
+backbone.0.body.layers.2.blocks.3.attn.proj.weight
+backbone.0.body.layers.2.blocks.3.attn.proj.bias
+backbone.0.body.layers.2.blocks.3.norm2.weight
+backbone.0.body.layers.2.blocks.3.norm2.bias
+backbone.0.body.layers.2.blocks.3.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.3.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.3.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.3.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.4.norm1.weight
+backbone.0.body.layers.2.blocks.4.norm1.bias
+backbone.0.body.layers.2.blocks.4.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.4.attn.qkv.weight
+backbone.0.body.layers.2.blocks.4.attn.qkv.bias
+backbone.0.body.layers.2.blocks.4.attn.proj.weight
+backbone.0.body.layers.2.blocks.4.attn.proj.bias
+backbone.0.body.layers.2.blocks.4.norm2.weight
+backbone.0.body.layers.2.blocks.4.norm2.bias
+backbone.0.body.layers.2.blocks.4.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.4.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.4.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.4.mlp.fc2.bias
+backbone.0.body.layers.2.blocks.5.norm1.weight
+backbone.0.body.layers.2.blocks.5.norm1.bias
+backbone.0.body.layers.2.blocks.5.attn.relative_position_bias_table
+backbone.0.body.layers.2.blocks.5.attn.qkv.weight
+backbone.0.body.layers.2.blocks.5.attn.qkv.bias
+backbone.0.body.layers.2.blocks.5.attn.proj.weight
+backbone.0.body.layers.2.blocks.5.attn.proj.bias
+backbone.0.body.layers.2.blocks.5.norm2.weight
+backbone.0.body.layers.2.blocks.5.norm2.bias
+backbone.0.body.layers.2.blocks.5.mlp.fc1.weight
+backbone.0.body.layers.2.blocks.5.mlp.fc1.bias
+backbone.0.body.layers.2.blocks.5.mlp.fc2.weight
+backbone.0.body.layers.2.blocks.5.mlp.fc2.bias
+backbone.0.body.layers.2.downsample.reduction.weight
+backbone.0.body.layers.2.downsample.norm.weight
+backbone.0.body.layers.2.downsample.norm.bias
+backbone.0.body.layers.3.blocks.0.norm1.weight
+backbone.0.body.layers.3.blocks.0.norm1.bias
+backbone.0.body.layers.3.blocks.0.attn.relative_position_bias_table
+backbone.0.body.layers.3.blocks.0.attn.qkv.weight
+backbone.0.body.layers.3.blocks.0.attn.qkv.bias
+backbone.0.body.layers.3.blocks.0.attn.proj.weight
+backbone.0.body.layers.3.blocks.0.attn.proj.bias
+backbone.0.body.layers.3.blocks.0.norm2.weight
+backbone.0.body.layers.3.blocks.0.norm2.bias
+backbone.0.body.layers.3.blocks.0.mlp.fc1.weight
+backbone.0.body.layers.3.blocks.0.mlp.fc1.bias
+backbone.0.body.layers.3.blocks.0.mlp.fc2.weight
+backbone.0.body.layers.3.blocks.0.mlp.fc2.bias
+backbone.0.body.layers.3.blocks.1.norm1.weight
+backbone.0.body.layers.3.blocks.1.norm1.bias
+backbone.0.body.layers.3.blocks.1.attn.relative_position_bias_table
+backbone.0.body.layers.3.blocks.1.attn.qkv.weight
+backbone.0.body.layers.3.blocks.1.attn.qkv.bias
+backbone.0.body.layers.3.blocks.1.attn.proj.weight
+backbone.0.body.layers.3.blocks.1.attn.proj.bias
+backbone.0.body.layers.3.blocks.1.norm2.weight
+backbone.0.body.layers.3.blocks.1.norm2.bias
+backbone.0.body.layers.3.blocks.1.mlp.fc1.weight
+backbone.0.body.layers.3.blocks.1.mlp.fc1.bias
+backbone.0.body.layers.3.blocks.1.mlp.fc2.weight
+backbone.0.body.layers.3.blocks.1.mlp.fc2.bias
+backbone.0.body.norm1.weight
+backbone.0.body.norm1.bias
+backbone.0.body.norm2.weight
+backbone.0.body.norm2.bias
+backbone.0.body.norm3.weight
+backbone.0.body.norm3.bias
+temp_class_embed_list.0.weight
+temp_class_embed_list.0.bias
+temp_class_embed_list.1.weight
+temp_class_embed_list.1.bias
+temp_class_embed_list.2.weight
+temp_class_embed_list.2.bias
+temp_bbox_embed_list.0.layers.0.weight
+temp_bbox_embed_list.0.layers.0.bias
+temp_bbox_embed_list.0.layers.1.weight
+temp_bbox_embed_list.0.layers.1.bias
+temp_bbox_embed_list.0.layers.2.weight
+temp_bbox_embed_list.0.layers.2.bias
+temp_bbox_embed_list.1.layers.0.weight
+temp_bbox_embed_list.1.layers.0.bias
+temp_bbox_embed_list.1.layers.1.weight
+temp_bbox_embed_list.1.layers.1.bias
+temp_bbox_embed_list.1.layers.2.weight
+temp_bbox_embed_list.1.layers.2.bias
+temp_bbox_embed_list.2.layers.0.weight
+temp_bbox_embed_list.2.layers.0.bias
+temp_bbox_embed_list.2.layers.1.weight
+temp_bbox_embed_list.2.layers.1.bias
+temp_bbox_embed_list.2.layers.2.weight
+temp_bbox_embed_list.2.layers.2.bias
+[5, 6]
+Start training
+Traceback (most recent call last):
+  File "main.py", line 337, in <module>
+    main(args)
+  File "main.py", line 296, in main
+    train_stats = train_one_epoch(
+  File "/mnt/e/important/code/TransVOD_Lite-main/engine_multi.py", line 53, in train_one_epoch
+    outputs = model(samples)
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 886, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/e/important/code/TransVOD_Lite-main/models/deformable_detr_multi.py", line 152, in forward
+    features, pos = self.backbone(samples)
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/e/important/code/TransVOD_Lite-main/models/swin_transformer.py", line 682, in forward
+    xs = self[0](tensor_list)
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/e/important/code/TransVOD_Lite-main/models/swin_transformer.py", line 649, in forward
+    xs = self.body(tensor_list.tensors)
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/e/important/code/TransVOD_Lite-main/models/swin_transformer.py", line 621, in forward
+    feat_fpn = self.fpn(rets)        
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torchvision/ops/feature_pyramid_network.py", line 144, in forward
+    last_inner = self.get_result_from_inner_blocks(x[-1], -1)
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torchvision/ops/feature_pyramid_network.py", line 109, in get_result_from_inner_blocks
+    out = module(x)
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 446, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 442, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [256, 1024, 1, 1], expected input[4, 768, 18, 32] to have 1024 channels, but got 768 channels instead
+Traceback (most recent call last):
+  File "./tools/launch.py", line 192, in <module>
+    main()
+  File "./tools/launch.py", line 187, in main
+    raise subprocess.CalledProcessError(returncode=process.returncode,
+subprocess.CalledProcessError: Command '['python', '-u', 'main.py', '--dataset_file', 'vid_multi', '--vid_path', '/mnt/e/important/code/TransVOD_Lite-main/a_Ncode/data_test/output', '--output_dir', 'outputs/exp_antiuav_swinb_multi_12172107', '--backbone', 'swin_t_p4w7', '--epochs', '7', '--batch_size', '1', '--num_frames', '4', '--num_feature_levels', '4', '--num_queries', '50', '--hidden_dim', '256', '--lr', '2e-4', '--lr_backbone', '1e-5', '--lr_drop_epochs', '5', '6', '--num_workers', '2', '--with_box_refine', '--dilation']' returned non-zero exit status 1.

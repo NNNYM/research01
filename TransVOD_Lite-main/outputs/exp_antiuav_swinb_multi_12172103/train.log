@@ -1,0 +1,32 @@
+vid_multi 11111111
+vid_multi
+| distributed init (rank 0): env://
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+git:
+  sha: N/A, status: clean, branch: N/A
+
+Namespace(aux_loss=True, backbone='swin_tiny', batch_size=1, bbox_loss_coef=5, cache_mode=False, checkpoint=False, clip_max_norm=0.1, cls_loss_coef=2, coco_panoptic_path=None, coco_path='./data/coco', coco_pretrain=False, dataset_file='vid_multi', dec_layers=6, dec_n_points=4, device='cuda', dice_loss_coef=1, dilation=True, dim_feedforward=1024, dist_backend='nccl', dist_url='env://', distributed=True, dropout=0.1, enc_layers=6, enc_n_points=4, epochs=7, eval=False, fixed_pretrained_model=False, focal_alpha=0.25, frozen_weights=None, gap=2, giou_loss_coef=2, gpu=0, hidden_dim=256, interval1=20, interval2=60, is_shuffle=False, lr=0.0002, lr_backbone=1e-05, lr_backbone_names=['backbone.0'], lr_drop=5, lr_drop_epochs=[5, 6], lr_linear_proj_mult=0.1, lr_linear_proj_names=['reference_points', 'sampling_offsets'], mask_loss_coef=1, masks=False, n_temporal_decoder_layers=1, nheads=8, num_feature_levels=1, num_frames=4, num_queries=50, num_ref_frames=3, num_workers=2, output_dir='outputs/exp_antiuav_swinb_multi_12172103', position_embedding='sine', position_embedding_scale=6.283185307179586, pretrained=None, rank=0, remove_difficult=False, resume='', seed=42, set_cost_bbox=5, set_cost_class=2, set_cost_giou=2, sgd=False, start_epoch=0, two_stage=False, vid_path='/mnt/e/important/code/TransVOD_Lite-main/a_Ncode/data_test/output', weight_decay=0.0001, with_box_refine=True, world_size=1)
+/home/nnnym/miniconda3/envs/vod/lib/python3.8/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Traceback (most recent call last):
+  File "main.py", line 337, in <module>
+    main(args)
+  File "main.py", line 166, in main
+    model, criterion, postprocessors = build_model(args)
+  File "/mnt/e/important/code/TransVOD_Lite-main/models/__init__.py", line 17, in build_model
+    return build_multi(args)
+  File "/mnt/e/important/code/TransVOD_Lite-main/models/deformable_detr_multi.py", line 472, in build
+    backbone = build_swin_backbone(args) 
+  File "/mnt/e/important/code/TransVOD_Lite-main/models/swin_transformer.py", line 695, in build_swin_backbone
+    backbone = Backbone(args.backbone, args.checkpoint, args.pretrained)
+  File "/mnt/e/important/code/TransVOD_Lite-main/models/swin_transformer.py", line 664, in __init__
+    assert name in ['swin_t_p4w7', 'swin_s_p4w7', 'swin_b_p4w7', 'swin_l_p4w7']
+AssertionError
+Traceback (most recent call last):
+  File "./tools/launch.py", line 192, in <module>
+    main()
+  File "./tools/launch.py", line 187, in main
+    raise subprocess.CalledProcessError(returncode=process.returncode,
+subprocess.CalledProcessError: Command '['python', '-u', 'main.py', '--dataset_file', 'vid_multi', '--vid_path', '/mnt/e/important/code/TransVOD_Lite-main/a_Ncode/data_test/output', '--output_dir', 'outputs/exp_antiuav_swinb_multi_12172103', '--backbone', 'swin_tiny', '--epochs', '7', '--batch_size', '1', '--num_frames', '4', '--num_feature_levels', '1', '--num_queries', '50', '--hidden_dim', '256', '--lr', '2e-4', '--lr_backbone', '1e-5', '--lr_drop_epochs', '5', '6', '--num_workers', '2', '--with_box_refine', '--dilation']' returned non-zero exit status 1.
