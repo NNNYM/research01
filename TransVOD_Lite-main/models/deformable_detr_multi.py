@@ -278,8 +278,12 @@ class SetCriterion(nn.Module):
         tgt_lengths = torch.as_tensor([len(v["labels"]) for v in targets], device=device)
         # Count the number of predictions that are NOT "no-object" (which is the last class)
         card_pred = (pred_logits.argmax(-1) != pred_logits.shape[-1] - 1).sum(1)
+
+        #这行报错
         card_err = F.l1_loss(card_pred.float(), tgt_lengths.float())
         losses = {'cardinality_error': card_err}
+        # print("pred_logits:", outputs["pred_logits"].shape)
+        # print("len(targets):", len(targets))
         return losses
 
     def loss_boxes(self, outputs, targets, indices, num_boxes):
@@ -437,8 +441,13 @@ class PostProcess(nn.Module):
         assert len(out_logits) == len(target_sizes)
         assert target_sizes.shape[1] == 2
 
+        #   代替topk_values, topk_indexes = torch.topk(prob.view(out_logits.shape[0], -1), 100, dim=1)
         prob = out_logits.sigmoid()
-        topk_values, topk_indexes = torch.topk(prob.view(out_logits.shape[0], -1), 100, dim=1)
+        flat = prob.flatten(1)  # [bs, num_queries*num_classes]  
+        k = min(100, flat.shape[1])  # 防止 k 越界
+        topk_values, topk_indexes = flat.topk(k, dim=1)
+
+        # topk_values, topk_indexes = torch.topk(prob.view(out_logits.shape[0], -1), 100, dim=1)  # dang num_query为100时才能用，但我的query_num不是
         scores = topk_values
         topk_boxes = topk_indexes // out_logits.shape[2]
         labels = topk_indexes % out_logits.shape[2]

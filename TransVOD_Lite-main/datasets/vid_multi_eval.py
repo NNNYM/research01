@@ -27,6 +27,8 @@ import random
 import copy
 import numpy as np
 
+print("USING EVAL  vid!!!!!!!!!:", __file__)
+
 def ChooseFrame(List, Gap, num_frames):
     ret = []
     start_id = 0

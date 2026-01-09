@@ -17,6 +17,7 @@ import sys
 from typing import Iterable
 
 import torch
+from torch.profiler import profile, ProfilerActivity
 import util.misc as utils
 from datasets.coco_eval import CocoEvaluator
 from datasets.panoptic_eval import PanopticEvaluator
@@ -47,10 +48,30 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
         # outputs = model(samples)
         samples = samples.to(device)
         #print("engine_target_shape",targets)
-        targets = [{k: v.to(device) for k, v in t.items()} for t in targets[0]]
+        # targets = [{k: v.to(device) for k, v in t.items()} for t in targets[0]]
+
+
+    # 这是我改的，解决传入多帧训练时，只有batch_size=1的时候才不报错的问题
+        targets = [
+            {k: v.to(device) for k, v in t.items() if k != 'path'}
+            for video_targets in targets
+            for t in video_targets
+        ]
+
+
         # print("targets", targets)
         # print("input model", type(samples))
         outputs = model(samples)
+
+        bs_out = outputs["pred_logits"].shape[0]
+        assert bs_out == len(targets), (bs_out, len(targets))
+
+        # print("pred_logits:", outputs["pred_logits"].shape)
+        # print("len(targets):", len(targets))
+        # print("boxes per target:", [t["boxes"].shape[0] for t in targets])
+        # print("image_id:", [int(t["image_id"]) for t in targets])
+
+
         loss_dict = criterion(outputs, targets)
         weight_dict = criterion.weight_dict
         losses = sum(loss_dict[k] * weight_dict[k] for k in loss_dict.keys() if k in weight_dict)
@@ -99,7 +120,7 @@ import time
 import numpy as np 
 
 @torch.no_grad()
-def evaluate(model, criterion, postprocessors, data_loader, base_ds, device, output_dir):
+def evaluate(model, criterion, postprocessors, data_loader, base_ds, device, output_dir):# 用的这个
     model.eval()
     criterion.eval()
 
@@ -118,11 +139,34 @@ def evaluate(model, criterion, postprocessors, data_loader, base_ds, device, out
             data_loader.dataset.ann_folder,
             output_dir=os.path.join(output_dir, "panoptic_eval"),
         )
-
+    i=0
     for samples, targets  in metric_logger.log_every(data_loader, 10, header):
-        samples = samples.to(device)
-        targets = [{k: v.to(device) for k, v in t.items() if k!='path'} for t in targets[0]]
 
+        samples = samples.to(device)
+        # targets = [{k: v.to(device) for k, v in t.items() if k!='path'} for t in targets[0]]
+
+        targets = [
+            {k: v.to(device) for k, v in t.items() if k != 'path'}
+            for video_targets in targets
+            for t in video_targets
+        ]
+
+        if i == 0 and utils.is_main_process():
+            with profile(
+                    activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA],
+                    record_shapes=True,
+                    with_flops=True
+            ) as prof:
+                _ = model(samples)  # 只统计 forward FLOPs
+            total_flops = sum(e.flops for e in prof.key_averages() if e.flops is not None)
+            print(f"[FLOPs] total={total_flops}  GFLOPs={total_flops / 1e9:.3f}")
+            print(prof.key_averages().table(sort_by="flops", row_limit=20))
+            ###仅用于看flops-------------
+            import sys
+            sys.exit(0)
+            #--------------
+            break
+        i = i + 1
         outputs = model(samples)
         loss_dict = criterion(outputs, targets)
         weight_dict = criterion.weight_dict
@@ -205,12 +249,23 @@ def evaluate1(model, criterion, postprocessors, data_loader, base_ds, device, ou
             data_loader.dataset.ann_folder,
             output_dir=os.path.join(output_dir, "panoptic_eval"),
         )
-
+    i=0
     for samples, targets  in metric_logger.log_every(data_loader, 10, header):
+        i=i+1
+        print("evaluate  1   ", i)
+        if i >= 50: # 暂1时看结果
+            break
         samples = samples.to(device)
         import pdb
         pdb.set_trace()
-        targets = [{k: v.to(device) for k, v in t.items()} for t in targets[0]]
+        # targets = [{k: v.to(device) for k, v in t.items()} for t in targets[0]]
+
+        targets = [
+            {k: v.to(device) for k, v in t.items() if k != 'path'}
+            for video_targets in targets
+            for t in video_targets
+        ]
+
 
         outputs = model(samples)
         loss_dict = criterion(outputs, targets)

@@ -18,6 +18,7 @@ from pathlib import Path
 
 import numpy as np
 import torch
+import torch.utils.data as tud
 from torch.utils.data import DataLoader
 import datasets
 
@@ -134,6 +135,12 @@ def get_args_parser():
     parser.add_argument('--num_workers', default=0, type=int)
     parser.add_argument('--cache_mode', default=False, action='store_true', help='whether to cache images on memory')
 
+
+    # -新增随机采样参数
+    parser.add_argument('--samples_per_video', default=0, type=int)
+    parser.add_argument('--ref_interval', default=5, type=int)
+
+
     return parser
 
 
@@ -196,6 +203,18 @@ def main(args):
     data_loader_val = DataLoader(dataset_val, args.batch_size, sampler=sampler_val,
                                  drop_last=False, collate_fn=utils.collate_fn, num_workers=args.num_workers,
                                  pin_memory=True)
+
+
+
+    def _set_dataset_epoch(ds, epoch: int):
+        # 递归处理：因为 train_joint 很可能是 ConcatDataset
+        if hasattr(ds, "set_epoch"):
+            ds.set_epoch(epoch)
+        elif isinstance(ds, tud.ConcatDataset):
+            for d in ds.datasets:
+                _set_dataset_epoch(d, epoch)
+        elif isinstance(ds, tud.Subset):
+            _set_dataset_epoch(ds.dataset, epoch)
 
     # lr_backbone_names = ["backbone.0", "backbone.neck", "input_proj", "transformer.encoder"]
     def match_name_keywords(n, name_keywords):
@@ -293,9 +312,15 @@ def main(args):
     for epoch in range(args.start_epoch, args.epochs):
         if args.distributed:
             sampler_train.set_epoch(epoch)
+
+        # 同一个 idx 在 dataset 内部如何随机映射到 key frame/ref frames
+        _set_dataset_epoch(data_loader_train.dataset, epoch)
+
         train_stats = train_one_epoch(
             model, criterion, data_loader_train, optimizer, device, epoch, args.clip_max_norm)
+
         lr_scheduler.step()
+
         print('args.output_dir', args.output_dir)
         if args.output_dir:
             checkpoint_paths = [output_dir / 'checkpoint.pth']

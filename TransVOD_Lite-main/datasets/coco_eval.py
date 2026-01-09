@@ -26,6 +26,7 @@ import pycocotools.mask as mask_util
 
 from util.misc import all_gather
 
+print("USING EVAL  COCo!!!!!!!!!:", __file__)
 
 class CocoEvaluator(object):
     def __init__(self, coco_gt, iou_types):
@@ -99,7 +100,9 @@ class CocoEvaluator(object):
                 [
                     {
                         "image_id": original_id,
-                        "category_id": labels[k],
+                        # "category_id": labels[k], 不适合只有一个class 的情况
+
+                        "category_id": self.coco_gt.getCatIds()[int(labels[k])],
                         "bbox": box,
                         "score": scores[k],
                     }
@@ -134,7 +137,9 @@ class CocoEvaluator(object):
                 [
                     {
                         "image_id": original_id,
-                        "category_id": labels[k],
+                        # "category_id": labels[k], 不适合只有一个class 的情况
+
+                        "category_id": self.coco_gt.getCatIds()[int(labels[k])],
                         "segmentation": rle,
                         "score": scores[k],
                     }
@@ -160,7 +165,9 @@ class CocoEvaluator(object):
                 [
                     {
                         "image_id": original_id,
-                        "category_id": labels[k],
+                        # "category_id": labels[k], 不适合只有一个class 的情况
+
+                        "category_id": self.coco_gt.getCatIds()[int(labels[k])],
                         'keypoints': keypoint,
                         "score": scores[k],
                     }
